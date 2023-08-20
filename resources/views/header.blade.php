@@ -10,8 +10,10 @@
 <body>
     <nav class="menu">
         <section class="menu__container">
-            <h1 class="menu__logo">Smart Lock</h1>
-
+            <div class="logo_img_text">
+                <img class="menu_logo_img" src="assets/img/logo_smartlock.png" alt="">
+                <h1 class="menu_logo_text">Smart <span>Lock</span></h1>
+            </div>
             <ul class="menu__links">
                 <li class="menu__item">
                     <a href="#" class="menu__link">Home</a>

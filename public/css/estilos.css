@@ -101,7 +101,20 @@ body{
     width: 36px;
 }
 
-
+.menu_logo_img{
+    width: 40px;
+    
+}
+.menu_logo_text{
+    margin-top: 13px;
+    padding-left: 20px;
+}
+.menu_logo_text span{
+    color: #0087cb;
+}
+.logo_img_text{
+    display: flex;
+}
 
 @media (max-width:800px){
     .menu__hamburguer{
