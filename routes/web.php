@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//perfil
+Route::get('/users', 'UserController@index')->name('user.index');
+//perfil
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

@@ -20,21 +20,39 @@
                 </li>
     
                 <li class="menu__item menu__item--show">
-                    <a href="#" class="menu__link">About <img src="assets/arrow.svg" class="menu__arrow"></a>
-    
+                    <a href="#" class="menu__link">Perfil <img src="assets/arrow.svg" class="menu__arrow"></a>
+            
                     <ul class="menu__nesting">
+                        @guest
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">About 1</a>
+                            <a href="{{ route('login') }}" class="menu__link menu__link--inside">Iniciar Sesión</a>
                         </li>
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">About 2</a>
+                            <a href="{{ route('register') }}" class="menu__link menu__link--inside">Crear Cuenta</a>
+                        </li>
+                        @else
+                        <li class="menu__inside">
+                            <a href="{{ route('dashboard') }}" class="menu__link menu__link--inside">Panel De Administracion</a>
                         </li>
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">About 3</a>
+                            <a href="{{ route('user.index') }}" class="menu__link menu__link--inside">
+                                @if (Auth::check())
+                                    Mi Perfil
+                                @else
+                                    Mi Cuenta
+                                @endif
+                            </a>
                         </li>
+                        <li class="menu__inside">
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="menu__link menu__link--inside menu__inside" style="background: none; border: none; cursor: pointer; color: #your-color-here;">Cerrar Sesión</button>
+                            </form>
+                        </li>
+                        @endguest
                     </ul>
                 </li>
-    
+
                 <li class="menu__item  menu__item--show">
                     <a href="#" class="menu__link">Projects  <img src="assets/arrow.svg" class="menu__arrow"></a>
     
@@ -55,21 +73,7 @@
                     <a href="#" class="menu__link">Contact</a>
                 </li>
 
-                <li class="menu__item">
-                    @if (Route::has('login'))
-                    <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
-                        @auth
-                            <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
-                        @else
-                            <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
-            
-                            @if (Route::has('register'))
-                                <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                            @endif
-                        @endauth
-                    </div>
-                @endif
-                </li>
+
             </ul>
 
             <div class="menu__hamburguer">
