@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
-//perfil
-Route::get('/users', 'UserController@index')->name('user.index');
-//perfil
+
+Route::prefix('profile')->group(function () {
+    Route::get('/', [UserController::class, 'show'])->name('profile.show');
+    Route::get('/edit', [UserController::class, 'edit'])->name('profile.edit');
+    Route::put('/update', [UserController::class, 'update'])->name('profile.update');
+    Route::delete('/delete', [UserController::class, 'destroy'])->name('profile.delete');
+    Route::put('/update-password', [UserController::class, 'updatePassword'])->name('profile.updatePassword');
+});
 
 Route::middleware([
     'auth:sanctum',

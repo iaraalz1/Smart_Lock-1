@@ -16,12 +16,12 @@
             </div>
             <ul class="menu__links">
                 <li class="menu__item">
-                    <a href="#" class="menu__link">Home</a>
+                    <a href="{{ route('index') }}" class="menu__link">Home</a>
                 </li>
-    
+
                 <li class="menu__item menu__item--show">
                     <a href="#" class="menu__link">Perfil <img src="assets/arrow.svg" class="menu__arrow"></a>
-            
+
                     <ul class="menu__nesting">
                         @guest
                         <li class="menu__inside">
@@ -35,7 +35,7 @@
                             <a href="{{ route('dashboard') }}" class="menu__link menu__link--inside">Panel De Administracion</a>
                         </li>
                         <li class="menu__inside">
-                            <a href="{{ route('user.index') }}" class="menu__link menu__link--inside">
+                            <a href="{{ route('profile.show', ['user' => Auth::user()->id]) }}" class="menu__link menu__link--inside">
                                 @if (Auth::check())
                                     Mi Perfil
                                 @else
@@ -55,7 +55,7 @@
 
                 <li class="menu__item  menu__item--show">
                     <a href="#" class="menu__link">Projects  <img src="assets/arrow.svg" class="menu__arrow"></a>
-    
+
                     <ul class="menu__nesting">
                         <li class="menu__inside">
                             <a href="#" class="menu__link menu__link--inside">Projects 1</a>
@@ -68,11 +68,10 @@
                         </li>
                     </ul>
                 </li>
-    
+
                 <li class="menu__item">
                     <a href="#" class="menu__link">Contact</a>
                 </li>
-
 
             </ul>
 
@@ -80,8 +79,6 @@
                 <img src="assets/menu.svg" class="menu__img">
             </div>
         </section>
-
-
     </nav>
 
     <script src="js/app.js"></script>
