@@ -28,6 +28,7 @@ Route::prefix('profile')->group(function () {
     Route::put('/update-password', [UserController::class, 'updatePassword'])->name('profile.updatePassword');
 });
 
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
