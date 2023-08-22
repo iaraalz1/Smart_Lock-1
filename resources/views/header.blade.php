@@ -63,9 +63,7 @@
                         <li class="menu__inside">
                             <a href="#" class="menu__link menu__link--inside">Projects 2</a>
                         </li>
-                        <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">Projects 3</a>
-                        </li>
+
                     </ul>
                 </li>
 

@@ -8,5 +8,7 @@
 </head>
 <body>
     @include('header')
+
+    <p>hola iara</p>
 </body>
 </html>
